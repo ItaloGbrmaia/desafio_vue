@@ -67,3 +67,5 @@ Feedback visual durante loading
 Lazy loading de imagens (com v-lazy)
 
 Bloqueio de requisições duplicadas
+
+![alt text](image.png)
