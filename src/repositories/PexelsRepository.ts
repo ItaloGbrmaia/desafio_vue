@@ -13,12 +13,15 @@ export class PexelsRepository {
   constructor(private readonly httpClient: HttpClient) {}
 
   async search(query: string, page = 1): Promise<Photo[]> {
-    const response = await this.httpClient.request<PexelsResponse>({
-      url: makeApiUrl(`/search?query=${query}&page=${page}`),
-      method: "get",
-    });
-    console.log(response.body.photos);
+    try {
+      const response = await this.httpClient.request<PexelsResponse>({
+        url: makeApiUrl(`/search?query=${query}&page=${page}`),
+        method: "get",
+      });
 
-    return response.body.photos;
+      return response.body.photos;
+    } catch (error) {
+      throw error;
+    }
   }
 }
